@@ -21,6 +21,38 @@
   .btn-outline:hover { border-color: oklch(0.75 0.02 240); }
   .btn-outline-thin:hover { border-color: oklch(0.7 0.02 240); }
   .plan-pick-btn:hover { border-color: oklch(0.38 0.09 255); }
+
+  /* ============================================================ */
+  /* MOBILE RESPONSIVENESS (max-width: 768px)                       */
+  /* Inline styles are used throughout for the desktop layout       */
+  /* (preserved from the original design); these overrides target  */
+  /* the specific grid/padding/font-size properties that break on   */
+  /* narrow screens, using !important since inline styles otherwise */
+  /* always win over regular class rules.                          */
+  /* ============================================================ */
+  @media (max-width: 768px) {
+    header { padding: 14px 20px !important; flex-wrap: wrap; gap: 8px; row-gap: 10px; }
+    header nav { gap: 2px !important; flex-wrap: wrap; justify-content: flex-end; }
+    header nav button.nav-link { font-size: 13px !important; padding: 6px 8px !important; }
+    #navGetStarted { font-size: 13px !important; padding: 8px 12px !important; margin-left: 0 !important; }
+
+    .hero-grid { grid-template-columns: 1fr !important; gap: 32px !important; padding: 48px 20px 32px !important; }
+    .hero-grid h1 { font-size: 32px !important; }
+
+    .equity-section { padding: 16px 20px 48px !important; }
+    .equity-grid { grid-template-columns: 1fr !important; padding: 24px !important; gap: 24px !important; }
+
+    .section-padded { padding: 48px 20px 56px !important; }
+
+    .pricing-grid-container { grid-template-columns: 1fr !important; }
+
+    .step-row { grid-template-columns: 1fr !important; gap: 12px !important; padding: 24px 0 !important; }
+    .step-row > div:nth-child(3) { display: none; } /* hide placeholder screenshot on mobile to save space */
+
+    .contact-grid { grid-template-columns: 1fr !important; gap: 32px !important; padding: 48px 20px 56px !important; }
+
+    h1 { font-size: 28px !important; }
+  }
 </style>
 </head>
 <body>
@@ -45,7 +77,7 @@
   <main style="flex: 1;">
 
     <div id="page-home" class="page-section">
-      <section style="padding: 96px 48px 64px; max-width: 1120px; margin: 0 auto; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 64px; align-items: center;">
+      <section class="hero-grid" style="padding: 96px 48px 64px; max-width: 1120px; margin: 0 auto; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 64px; align-items: center;">
         <div>
           <div style="display: inline-flex; align-items: center; gap: 8px; background: oklch(0.95 0.03 195); color: oklch(0.4 0.1 195); font-size: 13px; font-weight: 600; padding: 6px 12px; border-radius: 100px; margin-bottom: 24px;">
             <span style="width: 6px; height: 6px; border-radius: 50%; background: oklch(0.6 0.14 145);"></span>
@@ -74,8 +106,8 @@
         </div>
       </section>
 
-      <section style="padding: 32px 48px 96px; max-width: 1120px; margin: 0 auto;">
-        <div style="background: white; border: 1px solid oklch(0.9 0.008 240); border-radius: 16px; padding: 40px; display: grid; grid-template-columns: 1.3fr 1fr; gap: 40px;">
+      <section class="equity-section" style="padding: 32px 48px 96px; max-width: 1120px; margin: 0 auto;">
+        <div class="equity-grid" style="background: white; border: 1px solid oklch(0.9 0.008 240); border-radius: 16px; padding: 40px; display: grid; grid-template-columns: 1.3fr 1fr; gap: 40px;">
           <div>
             <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
               <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 600; color: oklch(0.22 0.02 240); margin: 0;">Sample equity curve</h3>
@@ -107,12 +139,12 @@
     </div>
 
     <div id="page-pricing" class="page-section hidden">
-      <section style="padding: 88px 48px 96px; max-width: 1160px; margin: 0 auto;">
+      <section class="section-padded" style="padding: 88px 48px 96px; max-width: 1160px; margin: 0 auto;">
         <div style="text-align: center; max-width: 620px; margin: 0 auto 56px;">
           <h1 style="font-family: 'Space Grotesk', sans-serif; font-size: 38px; font-weight: 700; color: oklch(0.2 0.02 240); margin: 0 0 14px; letter-spacing: -0.02em;">Plans sized to your capital</h1>
           <p style="font-size: 16px; color: oklch(0.45 0.02 240); line-height: 1.6; margin: 0;">Every tier runs the same core engine. What changes is position sizing and risk ceiling, matched to your account size.</p>
         </div>
-        <div id="plansGrid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; align-items: stretch;"></div>
+        <div id="plansGrid" class="pricing-grid-container" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; align-items: stretch;"></div>
         <p style="text-align: center; font-size: 13px; color: oklch(0.55 0.02 240); margin: 40px auto 0; max-width: 680px; line-height: 1.6;">
           Lot sizes and risk parameters are indicative starting points, automatically adjusted by the bot's position-sizing engine as your account balance changes. All trading involves risk of loss.
         </p>
@@ -120,7 +152,7 @@
     </div>
 
     <div id="page-how-it-works" class="page-section hidden">
-      <section style="padding: 88px 48px 96px; max-width: 980px; margin: 0 auto;">
+      <section class="section-padded" style="padding: 88px 48px 96px; max-width: 980px; margin: 0 auto;">
         <div style="text-align: center; max-width: 620px; margin: 0 auto 64px;">
           <h1 style="font-family: 'Space Grotesk', sans-serif; font-size: 38px; font-weight: 700; color: oklch(0.2 0.02 240); margin: 0 0 14px; letter-spacing: -0.02em;">From signup to live trading in six steps</h1>
           <p style="font-size: 16px; color: oklch(0.45 0.02 240); line-height: 1.6; margin: 0;">The bot is a standalone desktop app that connects to your already-running MT5 terminal — it never modifies MT5 itself. Your funds stay with your broker — we never take custody.</p>
@@ -139,7 +171,7 @@
     </div>
 
     <div id="page-legal" class="page-section hidden">
-      <section style="padding: 88px 48px 96px; max-width: 820px; margin: 0 auto;">
+      <section class="section-padded" style="padding: 88px 48px 96px; max-width: 820px; margin: 0 auto;">
         <div style="background: oklch(0.98 0.02 70); border: 1px solid oklch(0.85 0.06 70); border-radius: 14px; padding: 28px 32px; margin-bottom: 48px; display: flex; gap: 18px; align-items: flex-start;">
           <div style="width: 32px; height: 32px; border-radius: 50%; background: oklch(0.65 0.15 70); color: white; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-family: 'Space Grotesk', sans-serif;">!</div>
           <div>
@@ -154,8 +186,104 @@
       </section>
     </div>
 
+    <!-- ============================================================ -->
+    <!-- PRIVACY POLICY (placeholder — pending final legal review) -->
+    <!-- ============================================================ -->
+    <div id="page-privacy" class="page-section hidden">
+      <section class="section-padded" style="padding: 88px 48px 96px; max-width: 820px; margin: 0 auto;">
+        <div style="background: oklch(0.96 0.03 240); border: 1px solid oklch(0.85 0.05 240); border-radius: 14px; padding: 20px 24px; margin-bottom: 40px;">
+          <p style="font-size: 13px; color: oklch(0.35 0.04 240); margin: 0; line-height: 1.6;">
+            <strong>Placeholder — this page is a draft outline, not final legal text.</strong> The Privacy Policy is currently being finalized with legal counsel and will be updated with complete, binding language before the site accepts real customer data.
+          </p>
+        </div>
+        <h1 style="font-family: 'Space Grotesk', sans-serif; font-size: 32px; font-weight: 700; color: oklch(0.2 0.02 240); margin: 0 0 32px; letter-spacing: -0.02em;">Privacy Policy</h1>
+        <div style="display: flex; flex-direction: column; gap: 28px;">
+          <div>
+            <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 17px; font-weight: 600; color: oklch(0.22 0.02 240); margin: 0 0 8px;">Data we collect</h3>
+            <p style="font-size: 14px; color: oklch(0.45 0.02 240); line-height: 1.7; margin: 0;">Name and email address (at purchase and via the contact form), your MT5 account number (used solely to lock your license to your own account), and payment/billing details (processed entirely by our payment provider — we never see or store your card details).</p>
+          </div>
+          <div>
+            <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 17px; font-weight: 600; color: oklch(0.22 0.02 240); margin: 0 0 8px;">Why we collect it</h3>
+            <p style="font-size: 14px; color: oklch(0.45 0.02 240); line-height: 1.7; margin: 0;">To deliver the license and software you purchased, to prevent license misuse across multiple accounts, and to respond to support requests. We do not use your data for marketing and do not send promotional emails.</p>
+          </div>
+          <div>
+            <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 17px; font-weight: 600; color: oklch(0.22 0.02 240); margin: 0 0 8px;">Third parties</h3>
+            <p style="font-size: 14px; color: oklch(0.45 0.02 240); line-height: 1.7; margin: 0;">Payment processing is handled by our payment provider under its own privacy policy. License data is stored with our database provider, acting solely on our instructions.</p>
+          </div>
+          <div>
+            <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 17px; font-weight: 600; color: oklch(0.22 0.02 240); margin: 0 0 8px;">Data retention</h3>
+            <p style="font-size: 14px; color: oklch(0.45 0.02 240); line-height: 1.7; margin: 0;">Account and license data is retained while your subscription is active. Billing records are retained for the period required by applicable tax and accounting law.</p>
+          </div>
+          <div>
+            <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 17px; font-weight: 600; color: oklch(0.22 0.02 240); margin: 0 0 8px;">Your rights</h3>
+            <p style="font-size: 14px; color: oklch(0.45 0.02 240); line-height: 1.7; margin: 0;">You may request access to, correction of, or deletion of your personal data at any time by contacting <a href="#" class="nav-link" data-page="contact">support</a>.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- TERMS OF SERVICE (placeholder — pending final legal review) -->
+    <!-- ============================================================ -->
+    <div id="page-terms" class="page-section hidden">
+      <section class="section-padded" style="padding: 88px 48px 96px; max-width: 820px; margin: 0 auto;">
+        <div style="background: oklch(0.96 0.03 240); border: 1px solid oklch(0.85 0.05 240); border-radius: 14px; padding: 20px 24px; margin-bottom: 40px;">
+          <p style="font-size: 13px; color: oklch(0.35 0.04 240); margin: 0; line-height: 1.6;">
+            <strong>Placeholder — this page is a draft outline, not final legal text.</strong> The Terms of Service / License Agreement are currently being finalized with legal counsel.
+          </p>
+        </div>
+        <h1 style="font-family: 'Space Grotesk', sans-serif; font-size: 32px; font-weight: 700; color: oklch(0.2 0.02 240); margin: 0 0 32px; letter-spacing: -0.02em;">Terms of Service</h1>
+        <div style="display: flex; flex-direction: column; gap: 28px;">
+          <div>
+            <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 17px; font-weight: 600; color: oklch(0.22 0.02 240); margin: 0 0 8px;">License scope</h3>
+            <p style="font-size: 14px; color: oklch(0.45 0.02 240); line-height: 1.7; margin: 0;">Your license permits use of the software on one MT5 account per license key, for as long as your subscription remains active.</p>
+          </div>
+          <div>
+            <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 17px; font-weight: 600; color: oklch(0.22 0.02 240); margin: 0 0 8px;">Acceptable use</h3>
+            <p style="font-size: 14px; color: oklch(0.45 0.02 240); line-height: 1.7; margin: 0;">You may not share, resell, or attempt to use a single license key across multiple MT5 accounts. Attempting to circumvent license validation may result in termination without refund.</p>
+          </div>
+          <div>
+            <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 17px; font-weight: 600; color: oklch(0.22 0.02 240); margin: 0 0 8px;">Refunds</h3>
+            <p style="font-size: 14px; color: oklch(0.45 0.02 240); line-height: 1.7; margin: 0;">Refund eligibility and timeframes will be detailed here following legal review, including any statutory rights applicable in your jurisdiction.</p>
+          </div>
+          <div>
+            <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 17px; font-weight: 600; color: oklch(0.22 0.02 240); margin: 0 0 8px;">Warranty disclaimer &amp; liability</h3>
+            <p style="font-size: 14px; color: oklch(0.45 0.02 240); line-height: 1.7; margin: 0;">The software is provided "as is." Full warranty disclaimer and liability limitation language pending legal review.</p>
+          </div>
+          <div>
+            <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 17px; font-weight: 600; color: oklch(0.22 0.02 240); margin: 0 0 8px;">Termination</h3>
+            <p style="font-size: 14px; color: oklch(0.45 0.02 240); line-height: 1.7; margin: 0;">Either party may terminate the subscription at any time. Terms governing what happens to your license and data upon termination pending legal review.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ============================================================ -->
+    <!-- COOKIE POLICY (placeholder — pending final legal review) -->
+    <!-- ============================================================ -->
+    <div id="page-cookies" class="page-section hidden">
+      <section class="section-padded" style="padding: 88px 48px 96px; max-width: 820px; margin: 0 auto;">
+        <div style="background: oklch(0.96 0.03 240); border: 1px solid oklch(0.85 0.05 240); border-radius: 14px; padding: 20px 24px; margin-bottom: 40px;">
+          <p style="font-size: 13px; color: oklch(0.35 0.04 240); margin: 0; line-height: 1.6;">
+            <strong>Placeholder — this page is a draft outline, not final legal text.</strong> The Cookie Policy is currently being finalized with legal counsel. The cookie consent banner will be enabled once this page is complete.
+          </p>
+        </div>
+        <h1 style="font-family: 'Space Grotesk', sans-serif; font-size: 32px; font-weight: 700; color: oklch(0.2 0.02 240); margin: 0 0 32px; letter-spacing: -0.02em;">Cookie Policy</h1>
+        <div style="display: flex; flex-direction: column; gap: 28px;">
+          <div>
+            <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 17px; font-weight: 600; color: oklch(0.22 0.02 240); margin: 0 0 8px;">What we use</h3>
+            <p style="font-size: 14px; color: oklch(0.45 0.02 240); line-height: 1.7; margin: 0;">This site does not use marketing, advertising, or third-party analytics cookies. Cookies set by our contact form and hosting provider may apply strictly necessary/functional cookies to operate correctly.</p>
+          </div>
+          <div>
+            <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 17px; font-weight: 600; color: oklch(0.22 0.02 240); margin: 0 0 8px;">Managing cookies</h3>
+            <p style="font-size: 14px; color: oklch(0.45 0.02 240); line-height: 1.7; margin: 0;">A full, itemized list of cookies (name, purpose, duration, and provider) will be published here following legal review.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
     <div id="page-contact" class="page-section hidden">
-      <section style="padding: 88px 48px 96px; max-width: 980px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 64px;">
+      <section class="contact-grid" style="padding: 88px 48px 96px; max-width: 980px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 64px;">
         <div>
           <h1 style="font-family: 'Space Grotesk', sans-serif; font-size: 34px; font-weight: 700; color: oklch(0.2 0.02 240); margin: 0 0 16px; letter-spacing: -0.02em;">Talk to a human</h1>
           <p style="font-size: 15px; color: oklch(0.45 0.02 240); line-height: 1.6; margin: 0 0 32px;">Questions about setup, brokers, or which plan fits your account — reach out and we'll get back to you within one business day.</p>
@@ -180,7 +308,7 @@
             <p style="font-size: 14px; color: oklch(0.4 0.04 145); margin: 0;">We'll reply to your email shortly.</p>
           </div>
           <form id="contactForm" style="background: white; border: 1px solid oklch(0.9 0.008 240); border-radius: 14px; padding: 28px; display: flex; flex-direction: column; gap: 16px;">
-            <input type="hidden" name="access_key" value="37f815dc-73d0-45f5-8fe6-149d1fd0770b" />
+            <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY_HERE" />
             <input type="hidden" name="subject" value="New contact form submission — My Personal Trader" />
             <input type="checkbox" name="botcheck" style="display: none;" tabindex="-1" autocomplete="off" />
             <div>
@@ -208,8 +336,11 @@
 
   <footer style="border-top: 1px solid oklch(0.93 0.008 240); padding: 32px 48px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
     <span style="font-size: 13px; color: oklch(0.55 0.02 240);">© 2026 My Personal Trader. Not investment advice. Trading involves risk of loss.</span>
-    <div style="display: flex; gap: 20px;">
+    <div style="display: flex; gap: 20px; flex-wrap: wrap;">
       <a href="#" class="nav-link" data-page="legal" style="font-size: 13px;">Risk Disclosure</a>
+      <a href="#" class="nav-link" data-page="privacy" style="font-size: 13px;">Privacy Policy</a>
+      <a href="#" class="nav-link" data-page="terms" style="font-size: 13px;">Terms of Service</a>
+      <a href="#" class="nav-link" data-page="cookies" style="font-size: 13px;">Cookie Policy</a>
       <a href="#" class="nav-link" data-page="contact" style="font-size: 13px;">Contact</a>
     </div>
   </footer>
@@ -418,6 +549,7 @@ function renderSteps() {
   list.innerHTML = '';
   steps.forEach(function(step) {
     var row = document.createElement('div');
+    row.className = 'step-row';
     row.style.cssText = 'display:grid;grid-template-columns:48px 1fr 340px;gap:32px;padding:32px 0;border-bottom:1px solid oklch(0.93 0.008 240);';
     row.innerHTML =
       '<div style="width:40px;height:40px;border-radius:10px;background:oklch(0.96 0.006 240);border:1px solid oklch(0.9 0.008 240);display:flex;align-items:center;justify-content:center;font-family:\'Space Grotesk\',sans-serif;font-weight:700;color:oklch(0.38 0.09 255);font-size:15px;">' + step.n + '</div>' +
