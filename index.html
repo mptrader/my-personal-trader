@@ -162,6 +162,12 @@
         <div id="stepsList" style="display: flex; flex-direction: column; gap: 0;"></div>
         <div style="margin-top: 48px; background: oklch(0.96 0.006 240); border-radius: 14px; padding: 28px 32px; display: flex; align-items: center; justify-content: space-between; gap: 24px;">
           <div>
+            <h4 style="font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 600; color: oklch(0.22 0.02 240); margin: 0 0 6px;">Want to try it risk-free first?</h4>
+            <p style="font-size: 13px; color: oklch(0.5 0.02 240); margin: 0;">You can open a free demo account with your broker of choice and connect the app to it — test any of the models on simulated funds for as long as you'd like before ever trading with real money.</p>
+          </div>
+        </div>
+        <div style="margin-top: 20px; background: oklch(0.96 0.006 240); border-radius: 14px; padding: 28px 32px; display: flex; align-items: center; justify-content: space-between; gap: 24px;">
+          <div>
             <h4 style="font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 600; color: oklch(0.22 0.02 240); margin: 0 0 6px;">Supported brokers</h4>
             <p style="font-size: 13px; color: oklch(0.5 0.02 240); margin: 0;">Any MT5 broker that allows algorithmic/EA trading and hedging. Full compatibility list sent after signup.</p>
           </div>
@@ -375,7 +381,7 @@
 <script>
 const plans = [
   { id: 'starter', name: 'Starter', tagline: 'For your first live account.', price: '$19.99', priceSuffix: '/mo', accountSize: '$100 – $250', lotSize: '0.01 – 0.02', riskProfile: 'Conservative', riskPerTrade: '1%', pairs: 'EURUSD or USDJPY', updates: null, cta: 'Start with Starter', highlight: false },
-  { id: 'growth', name: 'Growth', tagline: 'For accounts building momentum.', price: '$34.99', priceSuffix: '/mo', accountSize: '$250 – $1,000', lotSize: '0.02 – 0.05', riskProfile: 'Moderate', riskPerTrade: '1.5 – 2%', pairs: 'EURUSD + USDJPY', updates: 'Monthly engine updates, based on performance', cta: 'Start with Growth', highlight: true },
+  { id: 'growth', name: 'Growth', tagline: 'For accounts building momentum.', price: '$34.99', priceSuffix: '/mo', accountSize: '$250 – $1,000', lotSize: '0.02 – 0.05', riskProfile: 'Moderate', riskPerTrade: '1.5 – 2%', pairs: 'XAUUSD', updates: 'Monthly engine updates, based on performance', cta: 'Start with Growth', highlight: true },
   { id: 'pro', name: 'Pro', tagline: 'For larger, active accounts.', price: '$59.99', priceSuffix: '/mo', accountSize: '$1,000 – $10,000', lotSize: '0.05 – 0.3', riskProfile: 'Active', riskPerTrade: '2 – 3%', pairs: 'EURUSD + USDJPY + XAUUSD', updates: 'Updates every 2 weeks, based on performance', cta: 'Start with Pro', highlight: false },
   { id: 'enterprise', name: 'Enterprise', tagline: 'Custom setups & fund structures.', price: '$99.99', priceSuffix: '/mo', accountSize: '$10,000+', lotSize: 'Custom', riskProfile: 'Custom', riskPerTrade: 'Custom', pairs: 'EURUSD + USDJPY + XAUUSD', updates: 'Fully customizable, updates every 2 weeks based on performance', cta: 'Start with Enterprise', highlight: false },
 ];
@@ -501,7 +507,7 @@ function renderPlans() {
         '<span style="font-size:14px;color:oklch(0.5 0.02 240);">' + plan.priceSuffix + '</span>' +
       '</div>' +
       '<div style="display:flex;flex-direction:column;gap:10px;padding:16px 0;border-top:1px solid oklch(0.93 0.008 240);border-bottom:1px solid oklch(0.93 0.008 240);margin-bottom:16px;flex:1;">' +
-        '<div style="display:flex;justify-content:space-between;font-size:13px;"><span style="color:oklch(0.5 0.02 240);">Pairs</span><span style="color:oklch(0.25 0.02 240);font-weight:600;text-align:right;">' + plan.pairs + '</span></div>' +
+        '<div style="display:flex;justify-content:space-between;font-size:13px;"><span style="color:oklch(0.5 0.02 240);">Model</span><span style="color:oklch(0.25 0.02 240);font-weight:600;text-align:right;">' + plan.pairs + '</span></div>' +
         '<div style="display:flex;justify-content:space-between;font-size:13px;"><span style="color:oklch(0.5 0.02 240);">Account size</span><span style="color:oklch(0.25 0.02 240);font-weight:600;">' + plan.accountSize + '</span></div>' +
         '<div style="display:flex;justify-content:space-between;font-size:13px;"><span style="color:oklch(0.5 0.02 240);">Lot size</span><span style="color:oklch(0.25 0.02 240);font-weight:600;">' + plan.lotSize + '</span></div>' +
         '<div style="display:flex;justify-content:space-between;font-size:13px;"><span style="color:oklch(0.5 0.02 240);">Risk profile</span><span style="color:oklch(0.25 0.02 240);font-weight:600;">' + plan.riskProfile + '</span></div>' +
