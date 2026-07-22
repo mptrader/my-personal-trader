@@ -175,6 +175,12 @@
             Ask about my broker
           </button>
         </div>
+        <div style="margin-top: 20px; background: oklch(0.96 0.006 240); border-radius: 14px; padding: 28px 32px; display: flex; align-items: center; justify-content: space-between; gap: 24px;">
+          <div>
+            <h4 style="font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 600; color: oklch(0.22 0.02 240); margin: 0 0 6px;">On a Mac?</h4>
+            <p style="font-size: 13px; color: oklch(0.5 0.02 240); margin: 0;">Just make sure MT5 for Mac is installed and you're logged into your account before opening the app — everything else needed to connect runs automatically the first time you launch it.</p>
+          </div>
+        </div>
       </section>
     </div>
 
@@ -383,7 +389,7 @@ const plans = [
   { id: 'starter', name: 'Starter', tagline: 'For your first live account.', price: '$19.99', priceSuffix: '/mo', accountSize: '$100 – $250', lotSize: '0.01 – 0.02', riskProfile: 'Conservative', riskPerTrade: '1%', pairs: 'EURUSD or USDJPY', updates: null, cta: 'Start with Starter', highlight: false },
   { id: 'growth', name: 'Growth', tagline: 'For accounts building momentum.', price: '$34.99', priceSuffix: '/mo', accountSize: '$250 – $1,000', lotSize: '0.02 – 0.05', riskProfile: 'Moderate', riskPerTrade: '1.5 – 2%', pairs: 'XAUUSD', updates: 'Monthly engine updates, based on performance', cta: 'Start with Growth', highlight: true },
   { id: 'pro', name: 'Pro', tagline: 'For larger, active accounts.', price: '$59.99', priceSuffix: '/mo', accountSize: '$1,000 – $10,000', lotSize: '0.05 – 0.3', riskProfile: 'Active', riskPerTrade: '2 – 3%', pairs: 'EURUSD + USDJPY + XAUUSD', updates: 'Updates every 2 weeks, based on performance', cta: 'Start with Pro', highlight: false },
-  { id: 'enterprise', name: 'Enterprise', tagline: 'Custom setups & fund structures.', price: '$99.99', priceSuffix: '/mo', accountSize: '$10,000+', lotSize: 'Custom', riskProfile: 'Custom', riskPerTrade: 'Custom', pairs: 'EURUSD + USDJPY + XAUUSD', updates: 'Fully customizable, updates every 2 weeks based on performance', cta: 'Start with Enterprise', highlight: false },
+  { id: 'enterprise', name: 'Enterprise', tagline: 'Custom setups & fund structures.', price: '$99.99', priceSuffix: '', priceNote: 'One-time purchase', accountSize: '$10,000+', lotSize: 'Custom', riskProfile: 'Custom', riskPerTrade: 'Custom', pairs: 'EURUSD + USDJPY + XAUUSD', updates: 'Fully customizable, updates every 2 weeks based on performance', cta: 'Start with Enterprise', highlight: false },
 ];
 
 const PRIMARY_BROKER = 'IC Markets';
@@ -505,6 +511,7 @@ function renderPlans() {
       '<div style="margin-bottom:20px;">' +
         '<span style="font-family:\'Space Grotesk\',sans-serif;font-size:30px;font-weight:700;color:oklch(0.22 0.02 240);">' + plan.price + '</span>' +
         '<span style="font-size:14px;color:oklch(0.5 0.02 240);">' + plan.priceSuffix + '</span>' +
+        (plan.priceNote ? '<div style="font-size:12px;color:oklch(0.5 0.02 240);margin-top:2px;">' + plan.priceNote + '</div>' : '') +
       '</div>' +
       '<div style="display:flex;flex-direction:column;gap:10px;padding:16px 0;border-top:1px solid oklch(0.93 0.008 240);border-bottom:1px solid oklch(0.93 0.008 240);margin-bottom:16px;flex:1;">' +
         '<div style="display:flex;justify-content:space-between;font-size:13px;"><span style="color:oklch(0.5 0.02 240);">Model</span><span style="color:oklch(0.25 0.02 240);font-weight:600;text-align:right;">' + plan.pairs + '</span></div>' +
