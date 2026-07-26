@@ -413,18 +413,18 @@ const PRODUCT_NAME = 'My Personal Trader';
 // Starter has two variants since customers choose their pair; every
 // other tier maps directly.
 const PRICE_IDS = {
-  starter_EURUSD: 'pri_01kycn49wdyzbmngp1zycv56pb',
-  starter_USDJPY: 'pri_01kycnnx6p7c4zk5f98t8rzn9a',
-  growth: 'pri_01kycn5s6sjjck87k4wd7zxjc9',
-  pro: 'pri_01kycjep1k3zrkf5m01n7gqh3w',
-  enterprise: 'pri_01kycna0q4hd91t5nktd821ngr',
+  starter_EURUSD: 'pri_01kyfwptstv4qq3gntbfqx36vk',
+  starter_USDJPY: 'pri_01kyfwnke4fxq37xsrtaqkf60r',
+  growth: 'pri_01kyfws072tnn6ya16dx9646rd',
+  pro: 'pri_01kyfwv2dqsvstvch8a0dkz9bm',
+  enterprise: 'pri_01kyfwxbsh8w5w0hcb9hyzsatd',
 };
 
 // Switch environment/token together when going live - sandbox token
 // only works with Paddle.Environment.set("sandbox"), and vice versa.
-Paddle.Environment.set("sandbox");
+Paddle.Environment.set("live");
 Paddle.Initialize({
-  token: "test_3ff865911d332af2d2b66b124af",
+  token: "live_7df9e2b6a82d418061a95899a51",
   eventCallback: function(data) {
     if (data.name === "checkout.completed") {
       state.buyStep = 'done';
