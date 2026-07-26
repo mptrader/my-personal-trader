@@ -464,7 +464,17 @@ function goTo(page) {
   document.querySelectorAll('.page-section').forEach(function(el) { el.classList.add('hidden'); });
   document.getElementById('page-' + page).classList.remove('hidden');
   window.scrollTo(0, 0);
+  if (window.location.hash !== '#' + page) {
+    history.pushState(null, '', '#' + page);
+  }
 }
+
+var VALID_PAGES = ['home', 'pricing', 'how-it-works', 'legal', 'privacy', 'terms', 'eula', 'returns', 'disclaimer', 'cookies', 'contact'];
+function goToFromHash() {
+  var page = window.location.hash.replace('#', '');
+  goTo(VALID_PAGES.indexOf(page) !== -1 ? page : 'home');
+}
+window.addEventListener('popstate', goToFromHash);
 
 document.querySelectorAll('.nav-link[data-page]').forEach(function(el) {
   el.addEventListener('click', function(e) {
@@ -756,7 +766,7 @@ renderPlans();
 renderBuyPlanList();
 renderSteps();
 renderLegal();
-goTo('home');
+goToFromHash();
 
 // Show the banner only if no prior choice has been stored
 try {
